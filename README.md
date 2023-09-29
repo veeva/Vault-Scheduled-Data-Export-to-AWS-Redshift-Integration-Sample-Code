@@ -470,6 +470,7 @@ Your security and compliance are paramount, and tailoring permissions to your sp
     - Execute Lambda functions
     - Redshift
 - Click `Create Function`
+4. Please change the Timeout for the lambda from 3 seconds to 5 minutes. 
 
 #### Configure Trigger for Lambda:
 - Go to the above created lambda funtion.
