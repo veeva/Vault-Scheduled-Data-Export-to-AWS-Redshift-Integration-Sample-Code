@@ -27,9 +27,10 @@ def process_s3_file(key):
         if key.endswith('.csv'):
             # Split the S3 key based on "/"
             key_parts = key.split("/")
-            # Store the folder name and CSV file name in separate variables
-            folder_name = key_parts[0]
-            file_name = key_parts[1]
+            # The folder name includes all parts except the last one (the file name)
+            folder_name = '/'.join(key_parts[:-1])
+            # The file name is the last part of the key
+            file_name = key_parts[-1]
             # Extract the object name from the file name
             object_name = file_name.split(f'_{settings.config.get("system", "year")}-')[0].split('_', 2)[2]
             log_message(log_level='Info',
